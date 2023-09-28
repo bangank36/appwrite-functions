@@ -9,6 +9,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    
+  },
+  "devDependencies": {
+    "prettier": "^3.0.0",
     "dotenv": "^16.3.1",
     "node-appwrite": "^9.0.0",
     "@shopify/shopify-api": "^6.2.0",
@@ -28,8 +32,5 @@
 		"webpack-cloud-functions": "^0.4.0",
 		"javascript-obfuscator": "4.0.2",
 		"webpack-obfuscator": "3.5.1"
-  },
-  "devDependencies": {
-    "prettier": "^3.0.0"
   }
 }
