@@ -12,6 +12,11 @@ dotenv.config()
 
 const req = {
     method: 'GET',
+    query: {
+        order_id: 'order_id',
+        site_url: 'site_url',
+        package: 'package',
+    },
     headers: {},
     payload: {},
     variables: {
@@ -40,6 +45,12 @@ const res = {
     json(obj, status) {
         console.log(obj, status);
     },
+    setHeader(key, value) {
+        console.log(key, value);
+    },
+    set(key, value) {
+        console.log(key, value);
+    }
 };
 
 const log = (...args) => console.log('[LOG] ', ...args);
