@@ -50,6 +50,9 @@ const res = {
     },
     set(key, value) {
         console.log(key, value);
+    },
+    empty() {
+        console.log('empty');
     }
 };
 

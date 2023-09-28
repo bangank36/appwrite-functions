@@ -91,6 +91,8 @@ module.exports = async ({ req, res }) => {
         res.set('Access-Control-Allow-Origin', '*');
         res.setHeader('Access-Control-Expose-Headers','Content-Disposition');
         res.send(appJS);
+
+        return context.res.empty();
     } catch (error) {
         console.error(error);
         res.send(`Error: ${error.message}`);
