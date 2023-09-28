@@ -18,7 +18,6 @@ let inputFile;
 let package;
 
 module.exports = async ({ req, res, log, error }) => {
-    log(req.query);
     const order_id = req.query.order_id;
     const site_url = req.query.site_url;
     const package_name = req.query.package;
@@ -40,7 +39,9 @@ module.exports = async ({ req, res, log, error }) => {
             break;
     }
     
+    log( 'before webpack' );
     try {
+        log( 'inside webpack' );
         // Create an instance of MemoryFS
         const memFS = new MemoryFS();
         // Fetch the site ID ( Squarespace ) to assign into the order using `getSiteId` ( returns Promise )
@@ -85,6 +86,7 @@ module.exports = async ({ req, res, log, error }) => {
             });
         });
   
+        log( 'after webpack' );
         res.set('Content-Disposition', `attachment; filename="${package}.js"`);
         res.set('Content-Type', 'application/javascript');
         // Support cors request from any squarespace .com
@@ -95,6 +97,7 @@ module.exports = async ({ req, res, log, error }) => {
         error(error);
         res.send(`Error: ${error.message}`);
     } finally {
+        log( 'finally passed!' );
         return res.empty();
     }
 };
