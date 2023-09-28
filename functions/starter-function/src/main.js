@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require("path");
 const MemoryFS = require('memory-fs');
+const fs = require('fs');
 
 require('dotenv').config();
 
@@ -42,6 +43,9 @@ module.exports = async ({ req, res, log, error }) => {
     log( 'before webpack' );
     try {
         log( 'inside webpack' );
+        // Print the content of the inputFile
+        const inputFileContent = fs.readFileSync(inputFile, 'utf8');
+        log(inputFileContent);
         // Create an instance of MemoryFS
         const memFS = new MemoryFS();
         // Fetch the site ID ( Squarespace ) to assign into the order using `getSiteId` ( returns Promise )
@@ -87,7 +91,7 @@ module.exports = async ({ req, res, log, error }) => {
         });
   
         log( 'after webpack' );
-        log( appJS )
+        log( appJS );
         res.set('Content-Disposition', `attachment; filename="${package}.js"`);
         res.set('Content-Type', 'application/javascript');
         // Support cors request from any squarespace .com

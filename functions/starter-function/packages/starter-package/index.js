@@ -1,1 +1,3 @@
-export const add = (a, b) => a + b;
+import { add } from 'add';
+
+export const startAdd = (a, b) => add(a, b);
