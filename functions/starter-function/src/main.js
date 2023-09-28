@@ -93,12 +93,10 @@ module.exports = async ({ req, res, log, error }) => {
         log( 'after webpack' );
         log( appJS );
         
-        res.set('Content-Disposition', `attachment; filename="${package}.js"`);
-        res.set('Content-Type', 'application/javascript');
-        // Support cors request from any squarespace .com
-        res.set('Access-Control-Allow-Origin', '*');
-        res.setHeader('Access-Control-Expose-Headers','Content-Disposition');
-        res.send(appJS);
+        return res.json({
+            content: appJS,
+          });
+      
     } catch (err) {
         error(err);
         res.send(`Error: ${err.message}`);
