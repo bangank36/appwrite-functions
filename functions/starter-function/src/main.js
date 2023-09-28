@@ -17,8 +17,8 @@ const webpackConfigFunction = require('../webpack/webpack.config.functions');
 let inputFile;
 let package;
 
-module.exports = async ({ req, res }) => {
-    console.log(req.query);
+module.exports = async ({ req, res, log, error }) => {
+    log(req.query);
     const order_id = req.query.order_id;
     const site_url = req.query.site_url;
     const package_name = req.query.package;
@@ -92,7 +92,7 @@ module.exports = async ({ req, res }) => {
         res.setHeader('Access-Control-Expose-Headers','Content-Disposition');
         res.send(appJS);
     } catch (error) {
-        console.error(error);
+        error(error);
         res.send(`Error: ${error.message}`);
     } finally {
         return res.empty();
