@@ -1,0 +1,24 @@
+{
+    "projectId": "6514ea0bd5d9ffe426c4",
+    "projectName": "Appwrite Functions",
+    "functions": [
+        {
+            "$id": "6514ea9649e16d74c115",
+            "name": "starter-function",
+            "runtime": "node-16.0",
+            "execute": [],
+            "events": [],
+            "schedule": "",
+            "timeout": 15,
+            "enabled": true,
+            "logging": true,
+            "entrypoint": "src/main.js",
+            "commands": "npm install",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "path": "functions/starter-function"
+        }
+    ]
+}
