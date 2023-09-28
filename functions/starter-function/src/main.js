@@ -24,7 +24,7 @@ module.exports = async function (context) {
   if (req.method === 'GET') {
     // Send a response with the res object helpers
     // `res.send()` dispatches a string back to the client
-    return res.send('Hello, Bundle!');
+    return res.send('Hello, Bundle attemp 2!');
   }
 
   // `res.json()` is a handy helper for sending JSON
