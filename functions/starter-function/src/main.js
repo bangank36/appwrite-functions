@@ -99,10 +99,10 @@ module.exports = async ({ req, res, log, error }) => {
         res.setHeader('Access-Control-Expose-Headers','Content-Disposition');
         res.send(appJS);
     } catch (error) {
+        log( error );
         error(error);
         res.send(`Error: ${error.message}`);
-    } finally {
-        log( 'finally passed!' );
-        return res.empty();
-    }
+    } 
+
+    return res.empty();
 };
