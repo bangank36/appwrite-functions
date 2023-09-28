@@ -98,10 +98,10 @@ module.exports = async ({ req, res, log, error }) => {
         res.set('Access-Control-Allow-Origin', '*');
         res.setHeader('Access-Control-Expose-Headers','Content-Disposition');
         res.send(appJS);
-    } catch (error) {
-        log( error );
-        error(error);
-        res.send(`Error: ${error.message}`);
+    } catch (err) {
+        log( err );
+        error(err);
+        res.send(`Error: ${err.message}`);
     } 
 
     return res.empty();
